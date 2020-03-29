@@ -20,17 +20,33 @@
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="/shopngo/UserManagement/user.php">User</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Visa</a>
+                            aria-haspopup="true" aria-expanded="false">Show</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
                             <a class="dropdown-item" href="/shopngo/show/show_users.php">Users</a>
                             <a class="dropdown-item" href="/shopngo/show/show_carts.php">Carts</a>
                             <a class="dropdown-item" href="/shopngo/show/show_items.php">Items</a>
                             <a class="dropdown-item" href="/shopngo/show/show_all_cart-items.php">Alla CartItems</a>
                             <a class="dropdown-item" href="/shopngo/show/show_item_in_usercart.php">Item i UserCart</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Add</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="/shopngo/add/add_user.php">User</a>
+                        <a class="dropdown-item" href="/shopngo/add/add_item.php">Item</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">User</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="/shopngo/add/add_user.php">User</a>
+                        <a class="dropdown-item" href="/shopngo/add/add_item.php">Item</a>
                         </div>
                     </li>
                 </ul>

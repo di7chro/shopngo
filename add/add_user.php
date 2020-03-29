@@ -1,32 +1,31 @@
+<?php session_start(); ?>
 <?php require_once '../includes/header.php' ?>
 
 <h1>Lägger till en User</h1>
-<p>Dessa finns redan</p>
-<?php 
-    require_once '../includes/dbconnect.php';
-    $sql_users = "SELECT * FROM User;";
-    $result_users = $link->query($sql_users) or die ("Kunde inte ställa frågan att hämta Users."); ?>
-    <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Username</th>
-            <th scope="col">Password</th>
-            <th scope="col">Color</th>
-          </tr>
-        </thead>
-        <tbody>
-    <?php
-    while ($user = mysqli_fetch_array($result_users)) { ?>
-        <tr>
-            <th scope="row"><?php echo $user['User_ID']?></th>
-            <td><?php echo $user['Username']?></td>
-            <td><?php echo $user['Password']?></td>
-            <td><?php echo $user['Color']?></td>
-        </tr>
-    <?php } ?>
-
-    </tbody>
-    </table>
+<div class="row container">
+<form action="do_add_user.php" method="POST">
+    <div class="form-group">
+        <label for="namn">Username</label>
+        <input type="text" class="form-control" name="user" value="<?php echo $old_namn ?>"
+            placeholder="Skriv in ditt username">
+    </div>
+    <div class="form-group">
+        <label for="plats">Password</label>
+        <input type="password" class="form-control" name="pass" placeholder="Skriv in ditt lösenord">
+    </div>
+    <div class="form-group">
+        <label for="plats">Color</label>
+        <input type="color" class="form-control" name="color" placeholder="Välj din färg">
+    </div>
+    <div class="form-group">
+        <?php if ($update == true): ?>
+        <button type="submit" class="btn btn-info" name="uppdatera">Uppdatera</button>
+        <input type="hidden" name="id" value="<?php echo $old_id ?>">
+        <?php else: ?>
+        <button type="submit" class="btn btn-primary" name="spara">Lägg till</button>
+        <?php endif; ?>
+    </div>
+</form>
+</div>
 
 <?php require_once '../includes/footer.php' ?>
