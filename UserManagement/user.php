@@ -15,6 +15,7 @@
 <?php 
     // Hämta ut info för att visa upp medlemmarna
     include_once '../includes/dbconnect.php'; 
+    include_once 'user_backend.php'; 
     $result = $link->query("SELECT * FROM User");
 ?>
 <h1>Mina Users</h1>
@@ -30,18 +31,18 @@
         </thead>
         <?php while($row = $result->fetch_assoc()): ?>
         <tr>
-            <td><?php echo $row['Name']; ?></td>
+            <td><?php echo $row['Username']; ?></td>
             <td><?php echo $row['Color']; ?></td>
             <td>
-                <a href="user.php?editera=<?php echo $row['id'];?>" class="btn btn-info">Editera</a>
-                <a href="user_backend.php?bort=<?php echo $row['id'];?>" class="btn btn-danger">Ta bort</a>
+                <a href="user.php?editera=<?php echo $row['User_ID'];?>" class="btn btn-info">Editera</a>
+                <a href="user_backend.php?bort=<?php echo $row['User_ID'];?>" class="btn btn-danger">Ta bort</a>
             </td>
         </tr>
         <?php endwhile; ?>
     </table>
 </div>
 <div class="row justify-content-center">
-    <form action="backend.php" method="POST">
+    <form action="user_backend.php" method="POST">
         <div class="form-group">
             <label for="namn">Namn</label>
             <input type="text" class="form-control" name="namn" value="<?php echo $old_namn ?>"
