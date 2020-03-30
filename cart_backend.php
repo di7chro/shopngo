@@ -5,8 +5,6 @@
 
     // Initiera lite variabler så att vi inte får felmeddelanden vid uppdatering
     $old_namn = '';
-    $old_pass = '';
-    $old_color = '';
     $old_id = 0;
     $update = false;
 
@@ -14,49 +12,43 @@
     // Man vill lägga till en ny person
     if (isset($_POST['spara'])) {
         $namn = htmlentities($_POST['namn'], ENT_QUOTES);
-        $pass = htmlentities($_POST['pass'], ENT_QUOTES);
-        $color = htmlentities($_POST['color'], ENT_QUOTES);
-        $sql = "INSERT INTO User (Username, Password, Color) VALUES('$namn', '$pass', '$color')";
+        $sql = "INSERT INTO Cart (Cart_Namn) VALUES('$namn')";
         $link->query ($sql) or die($link->error());
-        $_SESSION['meddelande'] = "Personen har blivit sparad.";
+        $_SESSION['meddelande'] = "Cart har blivit sparad.";
         $_SESSION['msg_typ'] = "success";
-        header("location: user.php");
+        header("location: cart.php");
     }
 
-    // Man vill ta bort en person
+    // Man vill ta bort en cart
     if (isset($_GET['bort'])) {
         $id = intval ($_GET['bort']) or die ("hacker n00b");
-        $sql = "DELETE FROM User WHERE User_ID=$id";
+        $sql = "DELETE FROM Cart WHERE Cart_ID=$id";
         $link->query ($sql) or die($link->error());
-        $_SESSION['meddelande'] = "Personen har tagits bort.";
+        $_SESSION['meddelande'] = "Cart har tagits bort.";
         $_SESSION['msg_typ'] = "danger";
-        header("location: user.php");
+        header("location: cart.php");
     }
 
-    // Man har valt en person att editera. Hämta in gammalt namn och plats på denne
+    // Man har valt en Cart att editera. Hämta in gammalt namn på denne
     if (isset($_GET['editera'])) {
         $id = intval($_GET['editera']) or die ("hacker n00b");
-        $sql = "SELECT * FROM User WHERE User_ID=$id";
+        $sql = "SELECT * FROM Cart WHERE Cart_ID=$id";
         $result = $link->query ($sql) or die($link->error());
         $person = $result->fetch_array();
-        $old_namn = $person['Username'];
-        $old_pass = $person['Password'];
-        $old_color = $person['Color'];
-        $old_id = $person['User_ID'];
+        $old_namn = $person['Cart_Namn'];
+        $old_id = $person['Cart_ID'];
         $update = true;
     }
     
-    // Man har fyllt i det nya namnet och platsen för personen
+    // Man har fyllt i det nya namnet för carten
     if (isset($_POST['uppdatera'])) {
         $id = intval($_POST['id']) or die ("hacker n00b");
         $namn = htmlentities ($_POST['namn'], ENT_QUOTES);
-        $pass = htmlentities ($_POST['pass'], ENT_QUOTES);
-        $color = htmlentities($_POST['color'], ENT_QUOTES);
-        $sql = "UPDATE User SET Username='$namn', Password='$pass', Color='$color' WHERE User_ID=$id";
+        $sql = "UPDATE Cart SET Cart_Namn='$namn' WHERE Cart_ID=$id";
         $result = $link->query ($sql) or die($link->error());
-        $_SESSION['meddelande'] = "Personen har uppdaterats.";
+        $_SESSION['meddelande'] = "Cart har uppdaterats.";
         $_SESSION['msg_typ'] = "info";
-        header("location: user.php");
+        header("location: cart.php");
     }
 
 ?>

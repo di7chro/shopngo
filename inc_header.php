@@ -22,6 +22,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="user.php">User</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.php">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="item.php">Item</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Show</a>
@@ -31,22 +37,6 @@
                             <a class="dropdown-item" href="show_items.php">Items</a>
                             <a class="dropdown-item" href="show_all_cart-items.php">Alla CartItems</a>
                             <a class="dropdown-item" href="show_item_in_usercart.php">Item i UserCart</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Add</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="add_user.php">User</a>
-                        <a class="dropdown-item" href="add_item.php">Item</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">User</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="add_user.php">User</a>
-                        <a class="dropdown-item" href="add_item.php">Item</a>
                         </div>
                     </li>
                 </ul>
