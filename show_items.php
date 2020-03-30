@@ -1,8 +1,8 @@
-<?php require_once '../includes/header.php' ?>
+<?php require_once 'inc_header.php' ?>
 
     <h1>Visar alla Items som finns.</h1>
 <?php 
-    require_once '../includes/dbconnect.php';
+    require_once 'inc_dbconnect.php';
     $sql_item = "SELECT * FROM Item;";
     $result_item = $link->query($sql_item) or die ("Kunde inte ställa frågan att hämta Items."); ?>
     <table class="table">
@@ -24,4 +24,4 @@
     </tbody>
     </table>
 
-<?php require_once '../includes/footer.php' ?>
+<?php require_once 'inc_footer.php' ?>

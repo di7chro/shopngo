@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php include_once '../includes/header.php' ?>
+<?php include_once 'inc_header.php' ?>
 <!--  -->
 <!--  -->
 <!-- Christian Ohlsson 2020-03-29 -->
@@ -14,7 +14,7 @@
 
 <?php 
     // Hämta ut info för att visa upp medlemmarna
-    include_once '../includes/dbconnect.php'; 
+    include_once 'inc_dbconnect.php'; 
     include_once 'user_backend.php'; 
     $result = $link->query("SELECT * FROM User");
 ?>
@@ -63,4 +63,4 @@
         </div>
     </form>
 </div>
-<?php include_once '../includes/footer.php' ?>
+<?php include_once 'inc_footer.php' ?>

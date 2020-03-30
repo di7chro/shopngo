@@ -1,8 +1,8 @@
-<?php require_once '../includes/header.php' ?>
+<?php require_once 'inc_header.php' ?>
 
 <h1>Visar alla Carts som finns.</h1>
 <?php 
-    require_once '../includes/dbconnect.php';
+    require_once 'inc_dbconnect.php';
     $sql_cart = "SELECT * FROM Cart;";
     $result_cart = $link->query($sql_cart) or die ("Kunde inte ställa frågan att hämta Carts."); ?>
     <table class="table">
@@ -24,4 +24,4 @@
     </tbody>
     </table>
 
-<?php require_once '../includes/footer.php' ?>
+<?php require_once 'inc_footer.php' ?>

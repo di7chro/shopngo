@@ -9,7 +9,7 @@
     $old_id = 0;
     $update = false;
 
-    include_once '../includes/dbconnect.php'; 
+    include_once 'inc_dbconnect.php'; 
 
     // Man vill lägga till en ny person
     if (isset($_POST['spara'])) {

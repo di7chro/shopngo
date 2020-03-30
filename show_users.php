@@ -1,8 +1,8 @@
-<?php require_once '../includes/header.php' ?>
+<?php require_once 'inc_header.php' ?>
 
 <h1>Visar alla Users som finns.</h1>
 <?php 
-    require_once '../includes/dbconnect.php';
+    require_once 'inc_dbconnect.php';
     $sql_users = "SELECT * FROM User;";
     $result_users = $link->query($sql_users) or die ("Kunde inte ställa frågan att hämta Users."); ?>
     <table class="table">
@@ -28,4 +28,4 @@
     </tbody>
     </table>
 
-<?php require_once '../includes/footer.php' ?>
+<?php require_once 'inc_footer.php' ?>

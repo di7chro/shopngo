@@ -1,8 +1,8 @@
-<?php require_once '../includes/header.php' ?>
+<?php require_once 'inc_header.php' ?>
 
     <h1>Visar innehållet i alla Carts.</h1>
 <?php 
-    require_once '../includes/dbconnect.php';
+    require_once 'inc_dbconnect.php';
     $sql_cartitems = "SELECT Cart.Cart_Namn AS Cart_Name, Item.Namn AS Item_Name\n"
     . "FROM Cart, Item, CartItem\n"
     . "WHERE \n"
@@ -29,4 +29,4 @@
     </tbody>
     </table>
 
-<?php require_once '../includes/footer.php' ?>
+<?php require_once 'inc_footer.php' ?>

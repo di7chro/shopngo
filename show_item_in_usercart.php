@@ -1,8 +1,8 @@
-<?php require_once '../includes/header.php' ?>
+<?php require_once 'inc_header.php' ?>
     <h1>Speciell fråga med alla tabeller</h1>
     <p>Visar vilka User som har Item(3), som är äpplen, i någon Cart.</p>
 <?php 
-    require_once '../includes/dbconnect.php';
+    require_once 'inc_dbconnect.php';
     // Skriv ut alla Users som har Item_ID=3 (Äpplen) i en Cart (Svar: 2, 3, 5, Crill, Suz, Brum)
     $sql_who_item_in_list = "SELECT User.Username, Cart.Cart_Namn\n"
     . "FROM User, UserCarts, CartItem, Cart\n"
@@ -31,4 +31,4 @@
     </tbody>
     </table>
 
-<?php require_once '../includes/footer.php' ?>
+<?php require_once 'inc_footer.php' ?>
