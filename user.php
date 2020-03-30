@@ -49,6 +49,11 @@
                 placeholder="Skriv in ditt namn">
         </div>
         <div class="form-group">
+            <label for="plats">Password</label>
+            <input type="password" class="form-control" name="pass" value="<?php echo $old_pass ?>"
+                placeholder="Skriv in ditt lösenord">
+        </div>
+        <div class="form-group">
             <label for="plats">Color</label>
             <input type="color" class="form-control" name="color" value="<?php echo $old_color ?>"
                 placeholder="Skriv in din färg">

@@ -5,21 +5,21 @@
 
     // Initiera lite variabler så att vi inte får felmeddelanden vid uppdatering
     $old_namn = '';
+    $old_pass = '';
     $old_color = '';
     $old_id = 0;
     $update = false;
 
     include_once 'inc_dbconnect.php'; 
-
     // Man vill lägga till en ny person
     if (isset($_POST['spara'])) {
         $namn = htmlentities($_POST['namn'], ENT_QUOTES);
-        $plats = htmlentities($_POST['color'], ENT_QUOTES);
-        $sql = "INSERT INTO User (Username, Color) VALUES('$namn', '$color')";
+        $pass = htmlentities($_POST['pass'], ENT_QUOTES);
+        $color = htmlentities($_POST['color'], ENT_QUOTES);
+        $sql = "INSERT INTO User (Username, Password, Color) VALUES('$namn', '$pass', '$color')";
         $link->query ($sql) or die($link->error());
         $_SESSION['meddelande'] = "Personen har blivit sparad.";
         $_SESSION['msg_typ'] = "success";
-        echo "Inne i spara";
         header("location: user.php");
     }
 
@@ -30,7 +30,7 @@
         $link->query ($sql) or die($link->error());
         $_SESSION['meddelande'] = "Personen har tagits bort.";
         $_SESSION['msg_typ'] = "danger";
-        echo "Inne i bort";
+        echo "Inne i bort: $id";
         header("location: user.php");
     }
 
@@ -40,23 +40,23 @@
         $sql = "SELECT * FROM User WHERE User_ID=$id";
         $result = $link->query ($sql) or die($link->error());
         $person = $result->fetch_array();
-        $old_namn = $person['Namn'];
-        $old_plats = $person['Color'];
+        $old_namn = $person['Username'];
+        $old_pass = $person['Password'];
+        $old_color = $person['Color'];
         $old_id = $person['User_ID'];
         $update = true;
-        echo "Inne i editera";
     }
     
     // Man har fyllt i det nya namnet och platsen för personen
     if (isset($_POST['uppdatera'])) {
         $id = intval($_POST['id']) or die ("hacker n00b");
         $namn = htmlentities ($_POST['namn'], ENT_QUOTES);
-        $plats = htmlentities($_POST['color'], ENT_QUOTES);
-        $sql = "UPDATE User SET Username='$namn', Color='$plats' WHERE User_ID=$id";
+        $pass = htmlentities ($_POST['pass'], ENT_QUOTES);
+        $color = htmlentities($_POST['color'], ENT_QUOTES);
+        $sql = "UPDATE User SET Username='$namn', Password='$pass', Color='$color' WHERE User_ID=$id";
         $result = $link->query ($sql) or die($link->error());
         $_SESSION['meddelande'] = "Personen har uppdaterats.";
         $_SESSION['msg_typ'] = "info";
-        echo "Inne i uppdatera";
         header("location: user.php");
     }
 
